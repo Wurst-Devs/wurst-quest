@@ -1,0 +1,21 @@
+@startuml general_workflow
+
+start
+
+#pink:player:\ncreates character;
+
+repeat
+
+    #lightblue:game:\ngenerate state;
+
+    if (automated) then (yes)
+
+      #lightgreen:autoplay:\ngenerate action;
+
+    else (no)
+
+      #pink:player:\nchooses action;
+
+    endif
+
+@enduml
