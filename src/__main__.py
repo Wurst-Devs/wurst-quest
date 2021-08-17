@@ -1,8 +1,5 @@
-import random
-
-
 def main():
-    pass
+    print("wurst-quest")
 
 
 if __name__ == "__main__":
