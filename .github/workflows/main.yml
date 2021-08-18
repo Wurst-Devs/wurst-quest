@@ -31,4 +31,10 @@ jobs:
         run: java -jar ../plantuml.jar -progress "docs/diagrams" -o "."
 
       - name: Commit change
-        run: git add -A && git commit -am "CI generated .png" && git push
+        run: git config --global user.email "wurst-ci@wurst.dev" && / 
+             git config --global user.name "wurst-ci" && /
+             git add -A && /
+             git commit -am "CI generated .png" && /
+             git push
+
+  
