@@ -17,7 +17,6 @@ if __name__ == "__main__":
     state = game.new_game()
 
     while True:
-
         logging.info(f"{state.status}...")
         time.sleep(state.duration)
 
