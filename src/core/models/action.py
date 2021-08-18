@@ -1,8 +1,4 @@
-from enum import Enum
-
-
-class ActionType(Enum):
-    TODO = 1
+from .enums import ActionType
 
 
 class Action:
