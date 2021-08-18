@@ -17,6 +17,9 @@ jobs:
 
       - name: Download plantuml
         run: wget -O plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
-        
+
+      - name: Download plantuml
+        run: ls -al
+
       - name: Get version of plantuml and run planutml on all diagrams
         run: java -jar plantuml.jar -version wurst-quest/docs/diagrams
