@@ -9,6 +9,12 @@ class Content:
         self.adjectives = None
 
     def init(self):
-        self.monsters = pd.read_csv(os.path.join("res", "monsters.csv"))
-        self.equipments = pd.read_csv(os.path.join("res", "equipments.csv"))
-        self.adjectives = pd.read_csv(os.path.join("res", "adjectives.csv"))
+        self.monsters = pd.read_csv(os.path.join("res", "monsters.csv")).to_dict(
+            "records"
+        )
+        self.equipments = pd.read_csv(os.path.join("res", "equipments.csv")).to_dict(
+            "records"
+        )
+        self.adjectives = pd.read_csv(os.path.join("res", "adjectives.csv")).to_dict(
+            "records"
+        )
