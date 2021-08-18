@@ -22,8 +22,10 @@ jobs:
         run: apt-get update -y && apt-get install -y graphviz
 
       - name: Get version of plantuml and run planutml on all diagrams
-        run: ls -al && ls -al docs/diagrams/*.puml
+        run: rm -rf docs/diagrams/*.png
         
       - name: Get version of plantuml and run planutml on all diagrams
         run: java -jar ../plantuml.jar -version -progress "docs/diagrams"
 
+      - name: Get version of plantuml and run planutml on all diagrams
+        run: ls -al docs/diagrams/
