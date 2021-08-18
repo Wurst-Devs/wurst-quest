@@ -1,0 +1,25 @@
+name: CI
+
+# Controls when the workflow will run
+on:
+  push:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build_diag:
+    runs-on: ubuntu-latest
+    container: openjdk:8
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download plantuml
+        run: wget http://cdnetworks-kr-1.dl.sourceforge.net/project/plantuml/plantuml.jar
+        
+      - name: Get version of plantuml
+        run: java -jar plantuml.jar -version
+
+      - name: Run planutml on all diagrams
+        run: java -jar plantuml.jar wurst-quest/docs/diagrams
