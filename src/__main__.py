@@ -7,17 +7,24 @@ if __name__ == "__main__":
     logging.basicConfig(
         format="[%(asctime)s][%(levelname)s][%(module)s] %(message)s",
         level=logging.INFO,
+
+
+
+
     )
 
     game = Game()
-    game.init()
+    game.
+    init()
 
     autoplay = Autoplay()
 
     state = game.new_game()
 
     while True:
-        logging.info(f"{state.status}...")
+
+
+          logging.info(f"{state.status}...")
         time.sleep(state.duration)
 
         action = autoplay.next_action(state)
