@@ -1,0 +1,46 @@
+name: PythonLint
+
+# Controls when the workflow will run
+on:
+  pull_request:
+    branches:
+      - 'master'
+    paths:
+      - 'src'
+      - 'tests'
+      - '.github/workflows/PythonLint.yml'
+    types:
+      - 'ready_for_review'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  python_black:
+    runs-on: ubuntu-latest
+    container: python:3.9
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install black
+        run: pip3 install black
+
+      - name: Get versions
+        run: pip3 freeze
+
+      - name: Run black
+        run: black --check src/ tests/
+
+      - name: Commit files
+        run: |
+          git config --local user.email "python-black[bot]@users.noreply.github.com"
+          git config --local user.name "python-black[bot]"
+          git add src/ tests/
+          git commit --allow-empty -am "python black CI"
+
+      - name: GitHub Push
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
