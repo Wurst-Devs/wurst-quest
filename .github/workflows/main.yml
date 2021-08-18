@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Download plantuml
-        run: wget http://cdnetworks-kr-1.dl.sourceforge.net/project/plantuml/plantuml.jar
+        run: wget https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
         
       - name: Get version of plantuml
         run: java -jar plantuml.jar -version
