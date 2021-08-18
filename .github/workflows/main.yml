@@ -39,12 +39,10 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add docs/diagrams/*.png
-          git commit -am "CI generated .png"
+          git commit --allow-empty -am "CI generated .png"
 
       - name: GitHub Push
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
-          force: true
-
