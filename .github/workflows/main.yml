@@ -30,13 +30,6 @@ jobs:
       - name: Run planutml on all diagrams
         run: java -jar ../plantuml.jar -progress "docs/diagrams" -o "."
 
-      - name: Commit change
-        run: git config --global user.email "wurst-ci@wurst.dev" && / 
-             git config --global user.name "wurst-ci" && /
-             git add docs/diagrams/*.png && /
-             git commit -am "CI generated .png" && /
-             git push
-
       - name: ssdf
         run: echo ${GITHUB_REF##*/}
 
