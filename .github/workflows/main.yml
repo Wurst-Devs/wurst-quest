@@ -21,14 +21,14 @@ jobs:
       - name: Install graphviz
         run: apt-get update -y && apt-get install -y graphviz
 
-      - name: Get version of plantuml and run planutml on all diagrams
+      - name: Rm all png in docs/diagrams to regenerate them
         run: rm -rf docs/diagrams/*.png
-        
-      - name: Get version of plantuml and run planutml on all diagrams
-        run: java -jar ../plantuml.jar -version -progress "docs/diagrams"
 
-      - name: Get version of plantuml and run planutml on all diagrams
+      - name: Get version of plantuml
+        run: java -jar ../plantuml.jar -version "docs/diagrams"
+
+      - name: Run planutml on all diagrams
         run: java -jar ../plantuml.jar -progress "docs/diagrams" -o "."
-        
-      - name: Get version of plantuml and run planutml on all diagrams
-        run: ls -al docs/diagrams/
+
+      - name: Commit change
+        run: git status
