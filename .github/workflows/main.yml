@@ -22,10 +22,10 @@ jobs:
         run: rm -rf docs/diagrams/*.png
 
       - name: Get version of plantuml
-        run: java -jar ../plantuml.jar -version "docs/diagrams"
+        run: java -jar /app/plantuml.jar -version "docs/diagrams"
 
       - name: Run planutml on all diagrams
-        run: java -jar ../plantuml.jar -progress "docs/diagrams" -o "."
+        run: java -jar /app/plantuml.jar -progress "docs/diagrams" -o "."
 
       - name: Commit files
         run: |
