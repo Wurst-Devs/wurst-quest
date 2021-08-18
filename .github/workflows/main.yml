@@ -19,4 +19,8 @@ jobs:
         run: wget -O plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
 
       - name: Get version of plantuml and run planutml on all diagrams
-        run: java -jar plantuml.jar -version "docs/diagrams/*.puml"
+        run: ls -al && ls -al docs/diagrams/*.puml
+        
+      - name: Get version of plantuml and run planutml on all diagrams
+        run: java -jar plantuml.jar "docs/diagrams"
+# -version -progress
