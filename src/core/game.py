@@ -3,22 +3,16 @@ import pandas as pd
 import os
 
 from .models import Action, State
-
-
-class Content:
-    def __init__(self):
-        self.monsters = pd.read_csv(os.path.join("res", "monsters.csv"))
-        self.equipments = pd.read_csv(os.path.join("res", "equipments.csv"))
-        self.adjectives = pd.read_csv(os.path.join("res", "adjectives.csv"))
+from content import Content
 
 
 class Game:
     def __init__(self) -> None:
-        self.content = None
+        self.content = Content()
 
     def init(self) -> None:
         logging.info("loading data...")
-        self.content = Content()
+        self.content.init()
 
         # TODO
 
