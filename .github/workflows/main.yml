@@ -31,4 +31,4 @@ jobs:
         run: java -jar ../plantuml.jar -progress "docs/diagrams" -o "."
 
       - name: Commit change
-        run: git status
+        run: git add -A && git commit -am "CI generated .png" && git push
