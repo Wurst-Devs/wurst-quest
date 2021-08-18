@@ -1,4 +1,4 @@
-@startuml game_states
+@startuml test
 
 [*] --> City
 
