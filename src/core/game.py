@@ -14,8 +14,6 @@ class Content:
 
 class Game:
     def __init__(self) -> None:
-        self.monsters = None
-        self.equipments = None
         self.content = None
 
     def init(self) -> None:
