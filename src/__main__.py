@@ -23,7 +23,7 @@ if __name__ == "__main__":
     while True:
 
 
-          logging.info(f"{state.status}...")
+        logging.info(f"{state.status}...")
         time.sleep(state.duration)
 
         action = autoplay.next_action(state)
