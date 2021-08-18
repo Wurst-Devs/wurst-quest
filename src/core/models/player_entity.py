@@ -5,7 +5,7 @@ from .enums import PlayerGear
 class PlayerEntity(Entity):
     def __init__(self) -> None:
         super().__init__()
-        self.race = "unkown"
+        self.race = "unknown"
         self.job = "unknown"
         self.experience = 0
         self.inventory = []
