@@ -19,7 +19,7 @@ jobs:
         run: wget -O ../plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
         
       - name: Install graphviz
-        run: apt install -y graphviz
+        run: apt-get update -y && apt-get install -y graphviz
 
       - name: Get version of plantuml and run planutml on all diagrams
         run: ls -al && ls -al docs/diagrams/*.puml
