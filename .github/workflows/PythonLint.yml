@@ -19,6 +19,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
           ref: ${{ github.HEAD_REF }}
 
       - name: Install black
