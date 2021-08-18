@@ -11,6 +11,5 @@ Outside --> City : RETREAT
 
 Battle --> Battle : BATTLE\nFLEE (failed)
 Battle --> Outside : BATTLE (won)\nFLEE (success)
-Battle --> City : BATTLE (lost)
 
 @enduml
