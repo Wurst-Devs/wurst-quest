@@ -16,11 +16,14 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Download plantuml
-        run: wget -O plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
+        run: wget -O ../plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
+        
+      - name: Install graphviz
+        run: apt install -y graphviz
 
       - name: Get version of plantuml and run planutml on all diagrams
         run: ls -al && ls -al docs/diagrams/*.puml
         
       - name: Get version of plantuml and run planutml on all diagrams
-        run: java -jar plantuml.jar "docs/diagrams"
-# -version -progress
+        run: java -jar ../plantuml.jar -version -progress "docs/diagrams"
+
