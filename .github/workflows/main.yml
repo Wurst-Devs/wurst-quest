@@ -28,7 +28,7 @@ jobs:
         run: java -jar ../plantuml.jar -version -progress "docs/diagrams"
 
       - name: Get version of plantuml and run planutml on all diagrams
-        run: java -jar ../plantuml.jar -progress "docs/diagrams" -o "docs/diagrams"
+        run: java -jar ../plantuml.jar -progress "docs/diagrams" -o "."
         
       - name: Get version of plantuml and run planutml on all diagrams
         run: ls -al docs/diagrams/
