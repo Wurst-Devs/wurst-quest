@@ -29,6 +29,9 @@ jobs:
       - name: Run black
         run: black --check src/ tests/
 
+      - name: Run black
+        run: git status
+
       - name: Commit files
         run: |
           git config --local user.email "python-black[bot]@users.noreply.github.com"
