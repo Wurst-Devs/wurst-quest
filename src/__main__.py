@@ -9,12 +9,14 @@ if __name__ == "__main__":
         level=logging.INFO,
     )
 
-    game = Game()
+       game = Game()
     game.init()
 
     autoplay = Autoplay()
 
-    state = game.new_game()
+    state = game
+    
+    .new_game()
 
     while True:
         logging.info(f"{state.status}...")
