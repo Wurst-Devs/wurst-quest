@@ -5,9 +5,7 @@ on:
   push:
     paths:
       - 'docs/diagrams/*.puml'
-    types: 
-      - created
-      - edited
+      - 'docs/diagrams/*.png'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,7 +20,7 @@ jobs:
 
       - name: Download plantuml
         run: wget -O ../plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
-        
+
       - name: Install graphviz
         run: apt-get update -y && apt-get install -y graphviz
 
@@ -48,4 +46,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+          force: true
 
