@@ -37,4 +37,13 @@ jobs:
              git commit -am "CI generated .png" && /
              git push
 
-  
+      - name: ssdf
+        run: echo ${GITHUB_REF##*/}
+
+      #- name: GitHub Push
+      #  uses: ad-m/github-push-action@v0.6.0
+      #  with:
+    # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
+      #    github_token: 
+      #    branch: # optional, default is master
+
