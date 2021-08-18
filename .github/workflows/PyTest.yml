@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  python_black:
+  pytest:
     runs-on: ubuntu-latest
     container: python:3.9
 
