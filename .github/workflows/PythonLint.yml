@@ -19,6 +19,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+          ref: ${{ github.HEAD_REF }}
 
       - name: Install black
         run: pip3 install black
@@ -31,7 +32,6 @@ jobs:
 
       - name: Commit files
         run: |
-          git pull
           git config --local user.email "python-black[bot]@users.noreply.github.com"
           git config --local user.name "python-black[bot]"
           git add src/ tests/
