@@ -14,8 +14,7 @@ if __name__ == "__main__":
     )
 
     game = Game()
-    game.
-    init()
+    game.init()
 
     autoplay = Autoplay()
 
