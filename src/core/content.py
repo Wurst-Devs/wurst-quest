@@ -5,13 +5,13 @@ from utils import Singleton
 
 
 class Content(Singleton):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.monsters = None
         self.equipments = None
         self.adjectives = None
 
-    def init(self):
+    def init(self) -> None:
         self.monsters = pd.read_csv(os.path.join("res", "monsters.csv")).to_dict(
             "records"
         )
