@@ -8,9 +8,9 @@ class CustomTestCase(TestCase):
         self.assertListEqual(list(first.keys()), list(second.keys()))
         for key in first:
             self.assertEqual(type(first[key]), type(second[key]))
-            if type(first[key]) == dict:
+            if type(first[key]) is dict:
                 self.assertDictDeepEqual(first[key], second[key])
-            elif type(first[key]) == list:
+            elif type(first[key]) is list:
                 self.assertListDeepEqual(first[key], second[key])
             else:
                 self.assertEqual(first[key], second[key])
@@ -19,9 +19,9 @@ class CustomTestCase(TestCase):
         self.assertCountEqual(first, second)
         for index in range(len(first)):
             self.assertEqual(type(first[index]), type(second[index]))
-            if type(first[index]) == dict:
+            if type(first[index]) is dict:
                 self.assertDictDeepEqual(first[index], second[index])
-            elif type(first[index]) == list:
+            elif type(first[index]) is list:
                 self.assertListDeepEqual(first[index], second[index])
             else:
                 self.assertEqual(first[index], second[index])
