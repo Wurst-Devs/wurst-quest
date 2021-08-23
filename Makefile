@@ -4,3 +4,9 @@ install:
 
 run:
 	python3 src
+
+test:
+	pytest
+
+pre-commit:
+	pre-commit run --all-files
