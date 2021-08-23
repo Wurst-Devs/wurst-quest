@@ -1,6 +1,6 @@
 from abc import ABC
 from random import Random
-from typing import Tuple, Callable, Optional, list, Union
+from typing import Tuple, Callable, Optional, Union
 
 from wurst_quest.core import Content
 from wurst_quest.core.enums import Adjective
@@ -15,19 +15,22 @@ class Factory(ABC):
     def content(self) -> Content:
         return Content.get_instance()
 
-    def choice(self, population: list, weights: Optional[Union[Callable, list]] = None):
+    def _choice(
+        self, population: list, weights: Optional[Union[Callable, list]] = None
+    ):
+        population = list(population)
         if callable(weights):
-            return self.random.choices(
-                population, [weights(p) for p in population], k=1
-            )[0]
-        elif type(weights) is list:
+            weights = [weights(p) for p in population]
+        if type(weights) is list:
+            max_weight = max(weights)
+            weights = [w / max_weight for w in weights]
             return self.random.choices(population, weights, k=1)[0]
         else:
             return self.random.choice(population)
 
-    def get_bonus(self, adj_type: Adjective) -> Tuple[int, str]:
+    def _get_bonus(self, adj_type: Adjective) -> Tuple[int, str]:
         adj = self.content.get_adjectives(adj_type)
 
-        selected = self.choice(adj.keys(), lambda b: pow(2, -abs(b)))
+        selected = self._choice(adj.keys(), lambda b: pow(2, -abs(b)))
 
-        return selected, self.choice(adj[selected])
+        return selected, self._choice(adj[selected])
