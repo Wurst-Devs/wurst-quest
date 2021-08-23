@@ -1,9 +1,12 @@
 import pandas as pd
 import os
 
+from utils import Singleton
 
-class Content:
+
+class Content(Singleton):
     def __init__(self):
+        super().__init__()
         self.monsters = None
         self.equipments = None
         self.adjectives = None
