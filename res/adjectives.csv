@@ -1,7 +1,7 @@
-bonus,monster,equipment
--3,Larva,Trashy
--2,Child,Bad
--1,Teen,Meh
-1,Adult,Cool
-2,King,Goldy
-3,God,Holy
+bonus,monster,equipment,loot
+-3,Larva,Trashy,Cursed
+-2,Child,Bad,Broken
+-1,Teen,Meh,Muddy
+1,Adult,Cool,Shiny
+2,King,Goldy,Majestic
+3,God,Holy,Blessed

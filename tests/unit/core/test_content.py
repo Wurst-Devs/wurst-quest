@@ -1,4 +1,4 @@
-from wurst_quest.core import Content
+from wurst_quest.core import Content, Adjective
 
 from tests.utils import TestResTestCase
 
@@ -11,7 +11,7 @@ class TestContent(TestResTestCase):
         content = Content()
         content.init()
         self.assertIsNotNone(content.adjectives)
-        adj = content.get_adjectives("monster")
+        adj = content.get_adjectives(Adjective.MONSTER)
         expected = {-3: ["a"], -2: ["b"], -1: ["c"], 1: ["d", "e"], 2: ["f"], 0: [""]}
         self.assertDictDeepEqual(expected, adj)
 

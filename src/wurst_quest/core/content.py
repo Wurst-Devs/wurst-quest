@@ -3,6 +3,7 @@ import os
 from typing import List, Dict
 
 from wurst_quest.utils import Singleton
+from .enums import Adjective
 
 
 def read_csv(name, *, arrays=[]) -> List[dict]:
@@ -24,13 +25,16 @@ class Content(Singleton):
     def init(self) -> None:
         self.monsters = read_csv("monsters", arrays=["loot"])
         self.equipments = read_csv("equipments")
-        self.adjectives = read_csv("adjectives", arrays=["monster", "equipment"])
+        self.adjectives = read_csv(
+            "adjectives",
+            arrays=[adj_type.name.lower() for adj_type in list(Adjective)],
+        )
 
-    def get_adjectives(self, name: str) -> Dict[int, List[str]]:
-        if name not in self.adjectives[0]:
+    def get_adjectives(self, adj_type: Adjective) -> Dict[int, List[str]]:
+        if adj_type.name.lower() not in self.adjectives[0]:
             return {}
 
-        adj = {row["bonus"]: row[name] for row in self.adjectives}
+        adj = {row["bonus"]: row[adj_type.name.lower()] for row in self.adjectives}
         adj[0] = [""]
 
         return adj
