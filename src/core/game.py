@@ -1,6 +1,4 @@
 import logging
-import pandas as pd
-import os
 
 from .models import Action, State
 from .content import Content
