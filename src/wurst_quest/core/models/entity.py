@@ -1,6 +1,6 @@
 from abc import ABCMeta
 
-from utils import DataObject
+from wurst_quest.utils import DataObject
 
 
 class Entity(DataObject, metaclass=ABCMeta):

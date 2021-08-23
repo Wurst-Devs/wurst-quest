@@ -1,6 +1,5 @@
-from unittest import TestCase
-from src.utils import Singleton
-from src.utils.singleton import SingletonError
+from wurst_quest.utils import Singleton
+from wurst_quest.utils.singleton import SingletonError
 
 
 from tests.utils import CustomTestCase

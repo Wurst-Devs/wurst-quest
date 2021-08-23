@@ -1,4 +1,4 @@
-from src.core import Content
+from wurst_quest.core import Content
 
 from tests.utils import TestResTestCase
 

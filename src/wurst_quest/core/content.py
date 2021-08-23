@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from typing import List, Dict
 
-from ..utils import Singleton
+from wurst_quest.utils import Singleton
 
 
 def read_csv(name, *, arrays=[]) -> List[dict]:

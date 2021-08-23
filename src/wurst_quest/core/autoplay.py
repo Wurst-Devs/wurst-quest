@@ -1,4 +1,4 @@
-from .models import Action, ActionType, State
+from wurst_quest.core.models import Action, ActionType, State
 
 
 class Autoplay:

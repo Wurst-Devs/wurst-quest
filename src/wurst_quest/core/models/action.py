@@ -1,4 +1,4 @@
-from utils import DataObject
+from wurst_quest.utils import DataObject
 
 from .enums import ActionType
 

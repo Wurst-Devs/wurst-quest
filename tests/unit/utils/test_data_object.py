@@ -1,4 +1,4 @@
-from src.utils import DataObject
+from wurst_quest.utils import DataObject
 
 from tests.utils import CustomTestCase
 

@@ -1,9 +1,10 @@
 import logging
 import time
 
-from core import Game, Autoplay
+from wurst_quest.core import Game, Autoplay
 
-if __name__ == "__main__":
+
+def main():
     logging.basicConfig(
         format="[%(asctime)s][%(levelname)s][%(module)s] %(message)s",
         level=logging.INFO,
@@ -23,3 +24,7 @@ if __name__ == "__main__":
         action = autoplay.next_action(state)
 
         state = game.compute(state, action)
+
+
+if __name__ == "__main__":
+    main()

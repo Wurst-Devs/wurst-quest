@@ -1,7 +1,7 @@
 from enum import Enum
 import random
 
-from utils import DataObject
+from wurst_quest.utils import DataObject
 
 from .player_entity import PlayerEntity
 from .enums import Location
