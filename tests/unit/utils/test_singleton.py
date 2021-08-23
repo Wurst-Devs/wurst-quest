@@ -3,6 +3,9 @@ from src.utils import Singleton
 from src.utils.singleton import SingletonError
 
 
+from tests.utils import CustomTestCase
+
+
 class MySingleton(Singleton):
     pass
 
@@ -11,7 +14,7 @@ class MyOtherSingleton(Singleton):
     pass
 
 
-class TestSingleton(TestCase):
+class TestSingleton(CustomTestCase):
     def setUp(self):
         MySingleton._Singleton__instance = None
         MyOtherSingleton._Singleton__instance = None
