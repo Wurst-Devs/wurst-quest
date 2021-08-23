@@ -1,6 +1,6 @@
 from wurst_quest.utils import DataObject
 
-from .enums import ActionType
+from wurst_quest.core import ActionType
 
 
 class Action(DataObject):

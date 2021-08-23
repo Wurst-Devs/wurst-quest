@@ -2,9 +2,9 @@ from enum import Enum
 import random
 
 from wurst_quest.utils import DataObject
+from wurst_quest.core import Location
 
 from .player_entity import PlayerEntity
-from .enums import Location
 
 
 class State(DataObject):

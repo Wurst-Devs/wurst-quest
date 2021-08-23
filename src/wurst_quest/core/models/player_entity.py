@@ -1,5 +1,6 @@
+from wurst_quest.core.enums import PlayerGear
+
 from .entity import Entity
-from .enums import PlayerGear
 
 
 class PlayerEntity(Entity):

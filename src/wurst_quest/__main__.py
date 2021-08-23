@@ -1,7 +1,7 @@
 import logging
 import time
 
-from wurst_quest.core import Game, Autoplay
+from .core import Game, Autoplay
 
 
 def main():

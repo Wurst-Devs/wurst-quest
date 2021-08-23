@@ -1,7 +1,6 @@
 import logging
 
-from wurst_quest.core.models import Action, State
-
+from .models import Action, State
 from .content import Content
 
 
