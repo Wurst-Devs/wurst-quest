@@ -12,7 +12,7 @@ class TestContent(TestResTestCase):
         content.init()
         self.assertIsNotNone(content.adjectives)
         adj = content.get_adjectives("monster")
-        expected = {-3: ["a"], -2: ["b"], -1: ["c"], 1: ["d", "e"], 2: ["f"]}
+        expected = {-3: ["a"], -2: ["b"], -1: ["c"], 1: ["d", "e"], 2: ["f"], 0: [""]}
         self.assertDictDeepEqual(expected, adj)
 
     def test_monster(self):

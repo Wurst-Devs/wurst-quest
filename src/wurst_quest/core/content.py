@@ -29,4 +29,8 @@ class Content(Singleton):
     def get_adjectives(self, name: str) -> Dict[int, List[str]]:
         if name not in self.adjectives[0]:
             return {}
-        return {row["bonus"]: row[name] for row in self.adjectives}
+
+        adj = {row["bonus"]: row[name] for row in self.adjectives}
+        adj[0] = [""]
+
+        return adj
