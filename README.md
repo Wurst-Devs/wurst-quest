@@ -9,14 +9,12 @@ wurst-quest
 
 ## Developing
 ```bash
-make install
 make install-dev
 make run
 ```
 
 ## Testing
 ```bash
-make install
 make install-test
 make test
 ```
