@@ -12,7 +12,7 @@
   * [Gitting](#gitting)
     * [1. Branch naming](#1-branch-naming)
     * [2. Pull Requests creation](#2-pull-requests-creation)
-    * [3. Pull Requests review / merging](#3-pull-requests-review-merging)
+    * [3. Pull Requests review / merging](#3-pull-requests-review--merging)
   * [Reviewing](#reviewing)
 
 ## Architecture
