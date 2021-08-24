@@ -36,7 +36,7 @@ jobs:
         run: pip3 freeze
 
       - name: Run pytest
-        run: pytest --cache-clear --cov=src/ tests/ > pytest-coverage.txt
+        run: pytest --cache-clear --cov=src/wurst_quest/core/ --cov=src/wurst_quest/utils/ tests/ > pytest-coverage.txt
 
       - name: Pytest coverage comment
         uses: MishaKav/pytest-coverage-comment@v1.1.6
