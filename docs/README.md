@@ -138,11 +138,11 @@ class NameClass(ValueClass):
 #### 3. Imports and sub-modules
 
 * Import order is:
-  * 1. Native Python libraries (`import os.path`)
-  * 2. External libraries (`import pandas as pd`)
-  * 3. Cross-modules (in another directory from the start) (`from wurst_dev.utils import DataObject`)
-  * 4. Sub-modules (`from .core.models import State`)
-  * 5. This modules (`from .content import Content`)
+  1. Native Python libraries (`import os.path`)
+  2. External libraries (`import pandas as pd`)
+  3. Cross-modules (in another directory from the start) (`from wurst_dev.utils import DataObject`)
+  4. Sub-modules (`from .core.models import State`)
+  5. This modules (`from .content import Content`)
 * Import only classes and functions used
 * Relative sub-modules should be access through dot: `from .<sub>.<subsub> import Class`
 * Relative cross-modules should be access through all hierarchy: `from <top-level>.<othersub> import Class`
