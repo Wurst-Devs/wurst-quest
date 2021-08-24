@@ -29,6 +29,6 @@ jobs:
 
       - name: Get versions
         run: pip3 freeze
-  
+
       - name: Run pytest
         run: pytest --cov=src/ tests/
