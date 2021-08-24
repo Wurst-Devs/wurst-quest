@@ -11,6 +11,12 @@ wurst-quest
 ```bash
 make install
 make install-dev
-make test
 make run
+```
+
+## Testing
+```bash
+make install
+make install-test
+make test
 ```
