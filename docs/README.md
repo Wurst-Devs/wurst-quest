@@ -35,8 +35,9 @@
 <details><summary>Sample code (click)</summary>
 <p>
 
+**wrong**
+	
 ```python
-# wrong
 class NameClass:
 	def __init__(self, name):
 		self.name = name
@@ -47,7 +48,11 @@ class NameClass:
 	def get_chars(self):
 		return self.name.split("")
 
-#  good
+```
+	
+**good**
+	
+```python
 from typing import List
 
 class NameClass:
@@ -74,9 +79,10 @@ class NameClass:
   
 <details><summary>Sample code (click)</summary>
 <p>
-
+	
+**wrong**
+	
 ```python
-# wrong
 from typing import List, Any
 
 class Value_Class:
@@ -96,8 +102,11 @@ class Name_Class(Value_Class):
 	
 	def getPrefixed(self, p: str="") -> str:
 		return f"{p} {self.get()}".strip()
-
-# good
+```
+	
+**good**
+	
+```python
 from typing import List, Any
 
 class ValueClass:
@@ -172,6 +181,7 @@ def util_function():
 	pass
 ```
 **good**
+
 `src/wurst_quest/core/__init__.py`
 ```python
 from .class1 import Class1
