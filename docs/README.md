@@ -12,7 +12,7 @@
   * [Gitting](#gitting)
     * [1. Branch naming](#1-branch-naming)
     * [2. Pull Requests creation](#2-pull-requests-creation)
-    * [3. Pull Requests review/merging](#3-pull-requests-review-merging)
+    * [3. Pull Requests review / merging](#3-pull-requests-review-merging)
   * [Reviewing](#reviewing)
 
 ## Architecture
@@ -286,7 +286,7 @@ def util_function():
 * Try to name your PR the same as your issue for consistancy
 * If you create your PR when starting to work on your issue, put it in draft mode
 
-#### 3. Pull Requests review/merging
+#### 3. Pull Requests review / merging
 
 * If master was updated before you created the PR, use `git rebase origin/master` and push the merged results
 * When finishing a PR, don't forget to put your issue in the "review" column of the Kanban
