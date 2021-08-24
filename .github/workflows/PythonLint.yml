@@ -35,12 +35,11 @@ jobs:
           git config --local user.email "python-black[bot]@users.noreply.github.com"
           git config --local user.name "python-black[bot]"
           git add src/ tests/
-          git commit --allow-empty -am "python black CI"
+          if git diff-index --quiet HEAD; then echo "nothing to commit"; else git commit -am "python black CI"; fi
 
       - name: GitHub Push
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.HEAD_REF }}
-
 
