@@ -25,10 +25,10 @@ jobs:
           ref: ${{ github.HEAD_REF }}
 
       - name: Install requirements
-        run: pip3 install -r requirements-test.txt -r requirements.txt
+        run: pip3 install -r requirements-test.txt -r requirements.txt && pip3 install -e .
 
       - name: Get versions
         run: pip3 freeze
-
+  
       - name: Run pytest
         run: pytest --cov=src/ tests/
