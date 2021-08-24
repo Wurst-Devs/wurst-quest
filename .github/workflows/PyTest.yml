@@ -17,7 +17,12 @@ on:
 jobs:
   pytest:
     runs-on: ubuntu-latest
-    container: python:3.9
+    strategy:
+      matrix:
+        container: ["python:3.7", "python:3.8", "python:3.9", "python:latest"]
+
+    container: 
+      image: ${{ matrix.container }}
 
     steps:
       - uses: actions/checkout@v2
@@ -31,4 +36,7 @@ jobs:
         run: pip3 freeze
 
       - name: Run pytest
-        run: pytest --cov=src/ tests/
+        run: pytest --cache-clear --cov=src/ tests/ > pytest-coverage.txt
+
+      - name: Comment coverage
+        uses: coroo/pytest-coverage-commentator@v1.0.2
