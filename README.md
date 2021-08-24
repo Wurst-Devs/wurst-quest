@@ -9,6 +9,7 @@ wurst-quest
 
 ## Developing
 ```bash
+make install
 make install-dev
 make test
 make run
