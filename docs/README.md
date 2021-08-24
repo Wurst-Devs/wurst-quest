@@ -137,6 +137,12 @@ class NameClass(ValueClass):
 
 #### 3. Imports and sub-modules
 
+* Import order is:
+  * 1. Native Python libraries (`import os.path`)
+  * 2. External libraries (`import pandas as pd`)
+  * 3. Cross-modules (in another directory from the start) (`from wurst_dev.utils import DataObject`)
+  * 4. Sub-modules (`from .core.models import State`)
+  * 5. This modules (`from .content import Content`)
 * Import only classes and functions used
 * Relative sub-modules should be access through dot: `from .<sub>.<subsub> import Class`
 * Relative cross-modules should be access through all hierarchy: `from <top-level>.<othersub> import Class`
@@ -165,57 +171,76 @@ files:
 **wrong**
 
 `src/wurst_quest/core/class1.py`
+	
 ```python
 from .models.class2 import *
+import os.path
+from ...utils.utils import *
 
 def Class1:
 	def __init__(self) -> None:
+		os.path.join(util_function())
 		self.class2 = Class2()
 ```
+	
 `src/wurst_quest/core/models/class2.py`
+	
 ```python
-from ...utils.utils import *
-
 def Class2:
-	def __init__(self) -> None:
-		util_function()
+	pass
 ```
+	
 `src/wurst_quest/utils/utils.py`
+	
 ```python
 def util_function():
 	pass
 ```
+	
 **good**
 
 `src/wurst_quest/core/__init__.py`
+	
 ```python
 from .class1 import Class1
 ```
+	
 `src/wurst_quest/core/class1.py`
+	
 ```python
+import os.path
+
+from wurst_quest.utils import util_function
+	
 from .models import Class2
 
 def Class1:
 	def __init__(self) -> None:
+		os.path.join(util_function())
 		self.class2 = Class2()
 ```
+	
 `src/wurst_quest/core/models/__init__.py`
+	
 ```python
 from .class2 import Class2
 ```
+	
 `src/wurst_quest/core/models/class2.py`
+	
 ```python
-from wurst_quest.utils import util_function
-
 def Class2:
-	def __init__(self) -> None:
-		util_function()
+	pass
 ```
+	
 `src/wurst_quest/utils/__init__.py`
+	
 ```python
 from .utils import util_function
 ```
+	
 `src/wurst_quest/utils/utils.py`
+	
 ```python
 def util_function():
 	pass
@@ -299,6 +324,7 @@ Your check-list:
 
 * Detect any anomalies with previous [Coding](#coding) and [Testing](#testing) guides 
 * Ensure no debug lines where left, no dangling prints
+* Ensure new libraries used are added to `requirements.txt` or `requirements-test.txt`
 * Check if the code is in the scope of the issue
    * If some parts of the code aren't, ask the coder to see there isn't another issue to be created/linked, or if it can be postponed to another pull request
 * Check CI status and coverage reports
