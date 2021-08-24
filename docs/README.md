@@ -219,14 +219,65 @@ def util_function():
 </p>
 </details>
 
+#### 4. TODO
+
+* TODO
+
+<details><summary>Sample code (click)</summary>
+<p>
+
+**wrong**
+
+```python
+
+```
+
+**good**
+
+```python
+
+```
+
+</p>
+</details>
+
 ### Testing
 
-TODO
+#### 1. TODO
+
+* TODO
+
+<details><summary>Sample code (click)</summary>
+<p>
+
+**wrong**
+
+```python
+
+```
+
+**good**
+
+```python
+
+```
+
+</p>
+</details>
 
 ### Gitting
 
-TODO
+#### 1. TODO
+
+* TODO
 
 ### Reviewing
 
-TODO
+How to review, your check-list:
+
+* Detect any anomalies with previous [Coding](#coding) and [Testing](#testing) guides 
+* Ensure no debug lines where left, no dangling prints
+* Check if the code is in the scope of the issue
+   * If some parts of the code aren't, ask the coder to see there isn't another issue to be created/linked, or if it can be postponed to another pull request
+* Check CI status and coverage reports
+   * Ask for more tests if coverage is greatly dropping, be vigilent for small decrease
