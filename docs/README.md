@@ -93,7 +93,7 @@ class Name_Class(Value_Class):
 	def __init__(self, Name: str) -> None:
 		super().__init__(Name)
 	
-	def get_prefixed(self, p: str="") -> str:
+	def getPrefixed(self, p: str="") -> str:
 		return f"{p} {self.get()}".strip()
 
 # good
