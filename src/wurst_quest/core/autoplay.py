@@ -1,4 +1,5 @@
-from .models import Action, ActionType, State
+from .models import Action, State
+from .enums import ActionType
 
 
 class Autoplay:

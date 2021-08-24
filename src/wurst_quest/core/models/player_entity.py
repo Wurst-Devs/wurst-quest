@@ -1,10 +1,11 @@
+from wurst_quest.core.enums import PlayerGear
+
 from .entity import Entity
-from .enums import PlayerGear
 
 
 class PlayerEntity(Entity):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
         self.race = "unknown"
         self.job = "unknown"
         self.experience = 0

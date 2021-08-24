@@ -1,14 +1,16 @@
 import logging
-import pandas as pd
-import os
 
 from .models import Action, State
-from content import Content
+from .content import Content
 
 
 class Game:
     def __init__(self) -> None:
-        self.content = Content()
+        pass
+
+    @property
+    def content(self) -> Content:
+        return Content.get_instance()
 
     def init(self) -> None:
         logging.info("loading data...")

@@ -13,3 +13,9 @@ class Location(Enum):
 
 class PlayerGear(Enum):
     WEAPON = 1
+
+
+class Adjective(Enum):
+    MONSTER = 1
+    EQUIPMENT = 2
+    LOOT = 3
