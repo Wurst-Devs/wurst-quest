@@ -7,6 +7,7 @@
   * [Coding](#coding)
     * [1. Use Typing](#1-use-typing)
     * [2. Naming and case](#2-naming-and-case)
+    * [3. Imports and sub-modules](#3-imports-and-sub-modules)
   * [Testing](#testing)
   * [Gitting](#gitting)
   * [Reviewing](#reviewing)
@@ -120,6 +121,93 @@ class NameClass(ValueClass):
 </p>
 </details>
 
+#### 3. Imports and sub-modules
+
+* Import only classes and functions used
+* Relative sub-modules should be access through dot: `from .<sub>.<subsub> import Class`
+* Relative cross-modules should be access through all hierarchy: `from <top-level>.<othersub> import Class`
+* Sub-modules should expose classes through their `__init__.py`
+* Subsequently, a module calling  another should not access its files directly
+
+<details><summary>Sample code (click)</summary>
+<p>
+
+files:
+```
+└─ src
+   └─ wurst_quest
+      ├─ __init__.py
+      ├─ core
+      │  ├─ __init__.py
+      │  ├─ class1.py
+      │  └─ models
+      │     ├─ __init__.py
+      │     └─ class2.py
+      └─ utils
+         ├─ __init__.py
+         └─ utils.py
+```
+
+**wrong**
+
+`src/wurst_quest/core/class1.py`
+```python
+from .models.class2 import *
+
+def Class1:
+	def __init__(self) -> None:
+		self.class2 = Class2()
+```
+`src/wurst_quest/core/models/class2.py`
+```python
+from ...utils.utils import *
+
+def Class2:
+	def __init__(self) -> None:
+		util_function()
+```
+`src/wurst_quest/utils/utils.py`
+```python
+def util_function():
+	pass
+```
+**good**
+`src/wurst_quest/core/__init__.py`
+```python
+from .class1 import Class1
+```
+`src/wurst_quest/core/class1.py`
+```python
+from .models import Class2
+
+def Class1:
+	def __init__(self) -> None:
+		self.class2 = Class2()
+```
+`src/wurst_quest/core/models/__init__.py`
+```python
+from .class2 import Class2
+```
+`src/wurst_quest/core/models/class2.py`
+```python
+from wurst_quest.utils import util_function
+
+def Class2:
+	def __init__(self) -> None:
+		util_function()
+```
+`src/wurst_quest/utils/__init__.py`
+```python
+from .utils import util_function
+```
+`src/wurst_quest/utils/utils.py`
+```python
+def util_function():
+	pass
+```
+
+</p>
+</details>
 
 ### Testing
 
