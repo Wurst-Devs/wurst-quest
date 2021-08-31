@@ -9,7 +9,6 @@ from .player_entity import PlayerEntity
 
 class State(DataObject):
     def __init__(self, **kwargs) -> None:
-        super().__init__(**kwargs)
         self.status = "TODO"  # text to display
         self.duration = 3  # time to wait
         self.location = Location.CITY
@@ -18,6 +17,8 @@ class State(DataObject):
 
         self.seed = None
         self.random = None
+
+        super().__init__(**kwargs)
 
         self.set_seed(random.random())
 
