@@ -1,5 +1,7 @@
 from enum import Enum
 import random
+from typing import Any
+from wurst_quest.core.models.monster_entity import MonsterEntity
 
 from wurst_quest.utils import DataObject
 from wurst_quest.core import Location
@@ -9,14 +11,14 @@ from .player_entity import PlayerEntity
 
 class State(DataObject):
     def __init__(self, **kwargs) -> None:
-        self.status = "TODO"  # text to display
-        self.duration = 3  # time to wait
-        self.location = Location.CITY
-        self.player = PlayerEntity()  # TODO create in another place
-        self.monster = None  # MonsterEntity
+        self.status: str = "TODO"  # text to display
+        self.duration: int = 3  # time to wait
+        self.location: Location = Location.CITY
+        self.player: PlayerEntity = PlayerEntity()  # TODO create in another place
+        self.monster: MonsterEntity = None  # MonsterEntity
 
-        self.seed = None
-        self.random = None
+        self.seed: Any = None
+        self.random: random.Random = None
 
         super().__init__(**kwargs)
 
