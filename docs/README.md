@@ -35,6 +35,7 @@ TODO
 
 * For arguments of functions
 * For return type of functions
+* For type of attributes in __init__ functions
 * Use complex typing when possible, ex: `Tuple[List[str], int]`
 
 <details><summary>Sample code (click)</summary>
@@ -62,7 +63,7 @@ from typing import List
 
 class NameClass:
 	def __init__(self, name: str) -> None:
-		self.name = name
+		self.name: str = name
 	
 	def get_prefixed(self, prefix: str="") -> str:
 		return f"{prefix} {self.name}".strip()
