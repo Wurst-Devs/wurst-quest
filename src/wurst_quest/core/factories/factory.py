@@ -2,8 +2,7 @@ from abc import ABC
 from random import Random
 from typing import Tuple, Callable, Optional, Union
 
-from wurst_quest.core import Content
-from wurst_quest.core.enums import Adjective
+from wurst_quest.core import Content, Adjective
 
 
 class Factory(ABC):

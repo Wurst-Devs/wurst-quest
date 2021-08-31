@@ -1,5 +1,6 @@
-from typing import Dict, List, Tuple
-from wurst_quest.core.enums import PlayerGear
+from typing import Dict, List
+
+from wurst_quest.core import PlayerGear
 
 from .entity import Entity
 from .item import Item

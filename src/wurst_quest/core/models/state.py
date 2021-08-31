@@ -1,10 +1,9 @@
-from enum import Enum
 import random
 from typing import Any
-from wurst_quest.core.models.monster_entity import MonsterEntity
 
 from wurst_quest.utils import DataObject
 from wurst_quest.core import Location
+from wurst_quest.core.models import MonsterEntity
 
 from .player_entity import PlayerEntity
 

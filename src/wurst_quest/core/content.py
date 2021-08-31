@@ -3,6 +3,7 @@ import os
 from typing import List, Dict
 
 from wurst_quest.utils import Singleton
+
 from .enums import Adjective
 
 

@@ -1,5 +1,4 @@
 from wurst_quest.utils import DataObject
-
 from wurst_quest.core import ActionType
 
 
