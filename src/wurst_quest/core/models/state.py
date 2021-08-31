@@ -12,10 +12,12 @@ from .player_entity import PlayerEntity
 class State(DataObject):
     def __init__(self, **kwargs) -> None:
         self.status: str = "TODO"  # text to display
-        self.duration: int = 3  # time to wait
+        self.duration: int = 0  # time to wait
         self.location: Location = Location.CITY
-        self.player: PlayerEntity = PlayerEntity()  # TODO create in another place
-        self.monster: MonsterEntity = None  # MonsterEntity
+        self.player: PlayerEntity = None
+        self.monster: MonsterEntity = None
+
+        self.locked: bool = False
 
         self.seed: Any = None
         self.random: random.Random = None
