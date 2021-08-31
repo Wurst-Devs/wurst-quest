@@ -12,8 +12,14 @@ class Autoplay:
         elif state.location == Location.CITY:
             return Action(ActionType.LEAVE)
         elif state.location == Location.OUTSIDE:
-            return Action(ActionType.SEARCH)
+            if state.player.hp < state.player.max_hp * 0.25:
+                return Action(ActionType.RETREAT)
+            else:
+                return Action(ActionType.SEARCH)
         elif state.location == Location.BATTLE:
-            return Action(ActionType.BATTLE)
+            if state.player.hp < state.player.max_hp * 0.25:
+                return Action(ActionType.FLEE)
+            else:
+                return Action(ActionType.BATTLE)
         else:
             return Action(ActionType.WAIT)
