@@ -7,4 +7,4 @@ class Autoplay:
         pass
 
     def next_action(self, state: State) -> Action:
-        return Action(ActionType.TODO)
+        return Action(ActionType.WAIT)

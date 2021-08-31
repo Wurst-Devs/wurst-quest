@@ -11,7 +11,7 @@ install-test:
 	pip3 install -e .
 
 run:
-	python3 src/wurst_wuest
+	wurst-quest
 
 test:
 	pytest

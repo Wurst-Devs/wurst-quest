@@ -2,7 +2,13 @@ from enum import Enum
 
 
 class ActionType(Enum):
-    TODO = 1
+    WAIT = 0
+    BUY = 1
+    LEAVE = 2
+    RETREAT = 3
+    SEARCH = 4
+    BATTLE = 5
+    FLEE = 6
 
 
 class Location(Enum):

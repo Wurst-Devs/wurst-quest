@@ -18,7 +18,7 @@ def main():
     state = game.new_game()
 
     while True:
-        logging.info(f"{state.status}...")
+        logging.info(f"[{state.location.name}] {state.status}...")
         time.sleep(state.duration)
 
         action = autoplay.next_action(state)
