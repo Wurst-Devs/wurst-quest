@@ -27,7 +27,7 @@ class PlayerFactory(Factory):
             player.level, PLAYER_GROWTH, PLAYER_ATTACK_FACTOR, PLAYER_ATTACK_BASE
         )
 
-        player.update(max_hp=max_hp, hp=max_hp)
+        player.update(max_hp=max_hp, hp=max_hp, experience=0)
         player.equipped[PlayerGear.WEAPON] = Item(name="Bare Hands", value=attack)
         return player
 
