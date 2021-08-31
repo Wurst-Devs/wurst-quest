@@ -14,15 +14,15 @@ MONSTER_ATTACK_FACTOR = 1 / 10  # 5 turns to kill exactly same
 
 
 class MonsterFactory(Factory):
-    def _available_monsters(self, min_level: int) -> Tuple[List[dict], List[int]]:
+    def _available_monsters(self, level: int) -> Tuple[List[dict], List[int]]:
         return [
             monster
             for monster in self.content.monsters
-            if monster["min_level"] >= min_level
+            if monster["min_level"] <= level
         ]
 
-    def generate_monster(self, min_level: int) -> MonsterEntity:
-        monsters = self._available_monsters(min_level)
+    def generate_monster(self, level: int) -> MonsterEntity:
+        monsters = self._available_monsters(level)
         monster_data = self._choice(monsters, lambda monster: monster["rarity"])
 
         bonus, adjective = self._get_bonus(Adjective.MONSTER)
