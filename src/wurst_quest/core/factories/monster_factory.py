@@ -1,7 +1,6 @@
-from random import Random
-from typing import List, Optional, Tuple
+from typing import List, Tuple
 
-from wurst_quest.core.models import MonsterEntity
+from wurst_quest.core.models import MonsterEntity, Item
 from wurst_quest.core import Adjective
 from wurst_quest.utils import growth
 
@@ -15,9 +14,6 @@ MONSTER_ATTACK_FACTOR = 1 / 10  # 5 turns to kill exactly same
 
 
 class MonsterFactory(Factory):
-    def __init__(self, random: Random) -> None:
-        super().__init__(random)
-
     def _available_monsters(self, min_level: int) -> Tuple[List[dict], List[int]]:
         return [
             monster
@@ -31,9 +27,7 @@ class MonsterFactory(Factory):
 
         bonus, adjective = self._get_bonus(Adjective.MONSTER)
 
-        monster = MonsterEntity()
-
-        monster.update(
+        monster = MonsterEntity(
             name=f"{adjective} {monster_data['name']}".strip(),
             base_name=monster_data["name"],
             loot=monster_data["loot"],
@@ -68,14 +62,14 @@ class MonsterFactory(Factory):
 
         return monster
 
-    def generate_loot(self, monster: MonsterEntity) -> Tuple[Optional[str], int]:
+    def generate_loot(self, monster: MonsterEntity) -> Item:
         weights = [pow(2, -i) for i in range(len(monster.loot))]
         weights += [weights[-1]]  # chance for nothing is same as rarest item
 
         selected = self._choice(monster.loot + [None], weights)
 
         if selected is None:
-            return None, 0
+            return None
 
         rarity = pow(2, monster.loot.index(selected))
 
@@ -83,4 +77,6 @@ class MonsterFactory(Factory):
 
         score = max(monster.level + rarity + bonus, 0)
 
-        return f"{adjective} {monster.base_name}'s {selected}".strip(), score
+        return Item(
+            name=f"{adjective} {monster.base_name}'s {selected}".strip(), value=score
+        )
