@@ -1,7 +1,7 @@
 from random import Random
-from wurst_quest.core.content import Content
 
-from wurst_quest.core.factories.monster_factory import MonsterFactory
+from wurst_quest.core import Content
+from wurst_quest.core.factories import MonsterFactory
 
 from tests.utils import TestResTestCase
 
@@ -26,14 +26,13 @@ class TestMonsterFactory(TestResTestCase):
         factory = MonsterFactory(Random(19))
         monster = factory.generate_monster(3)
 
-        loot, value = factory.generate_loot(monster)
-        self.assertEqual("a test_monster's test_2", loot)
-        self.assertEqual(6, value)
+        loot = factory.generate_loot(monster)
+        self.assertEqual("a test_monster's test_2", loot.name)
+        self.assertEqual(6, loot.value)
 
     def test_generate_loot_empty(self):
         factory = MonsterFactory(Random(5))
         monster = factory.generate_monster(3)
 
-        loot, value = factory.generate_loot(monster)
+        loot = factory.generate_loot(monster)
         self.assertIsNone(loot)
-        self.assertEqual(0, value)

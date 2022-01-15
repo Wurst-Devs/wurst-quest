@@ -1,5 +1,9 @@
+from typing import Any
+from .data_object import DataObject
+
+
 def growth(
-    level: int, growth_rate: float, factor: float, base: int, base_level: int
+    level: int, growth_rate: float, factor: float, base: int, base_level: int = 1
 ) -> int:
     return round(
         max(
@@ -8,3 +12,7 @@ def growth(
             0,
         )
     )
+
+
+def clone(obj: Any) -> Any:
+    return DataObject.cloneAny(obj)

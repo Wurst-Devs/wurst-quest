@@ -3,6 +3,7 @@ import os
 from typing import List, Dict
 
 from wurst_quest.utils import Singleton
+
 from .enums import Adjective
 
 
@@ -18,9 +19,9 @@ def read_csv(name, *, arrays=[]) -> List[dict]:
 class Content(Singleton):
     def __init__(self) -> None:
         super().__init__()
-        self.monsters = None
-        self.equipments = None
-        self.adjectives = None
+        self.monsters: List[dict] = []
+        self.equipments: List[dict] = []
+        self.adjectives: List[dict] = []
 
     def init(self) -> None:
         self.monsters = read_csv("monsters", arrays=["loot"])

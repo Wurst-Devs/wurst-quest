@@ -6,7 +6,7 @@ class SingletonError(Exception):
 
 
 class Singleton(ABC):
-    __instance = None
+    __instance: "Singleton" = None
 
     def __init__(self) -> None:
         super().__init__()
